@@ -2,7 +2,7 @@
 
 ## Write Path
 
-![Drag Racing](Dragster.jpg)
+![Write01](paths/Write01.jpg)
 
 ## Read Path
 
