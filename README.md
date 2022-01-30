@@ -5,7 +5,7 @@ Cassandra Basics
 
 ### Materialized Views ###
 
- **Materialized Views help to query data based on non-primary key columns and eliminates the need for secondary indexes. Seconday Index is most expensive in cassandra because the data needs to be queried from multiple tables in a cluster**
-  **MV should contain ALL primary key columns from the base table and any non-key columns that you want to include**
-   **Cassandra is repsonsible for updating MV with the data from base tables**
-    **Drawback: Expect a small performance hit on writes to keep MVs in sync**
+*Materialized Views help to query data based on non-primary key columns and eliminates the need for secondary indexes. Seconday Index is most expensive in cassandra because the data needs to be queried from multiple tables in a cluster*
+   *MV should contain ALL primary key columns from the base table and any non-key columns that you want to include**
+   *Cassandra is repsonsible for updating MV with the data from base tables*
+   *Drawback: Expect a small performance hit on writes to keep MVs in sync*
