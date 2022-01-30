@@ -19,3 +19,7 @@ When MemTable and CommitLog grow as the data is written, MemTable data gets flus
 
 ## Read Path
 
+As you can see, the data is in multiple places as below. The data from MemTable is newer so the data will be returned from MemTable, if the same key exists but older data in other tables.
+
+![Read01](paths/Read01.png)
+
