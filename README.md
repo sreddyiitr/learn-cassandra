@@ -15,4 +15,6 @@ Cassandra follows peer to peer architecture
 ### Snitch ###
 The snitch determines which datacenters and racks nodes belong to. They inform Cassandra about the network topology so that requests are routed efficiently and allows Cassandra to distribute replicas by grouping machines into datacenters and racks. 
 
-There are many different types of snitches available such as the simple snitch, property file snitch and cloud specific snitches
+There are many different types of snitches available such as the simple snitch, property file snitch, Gossipping property file snith, and cloud specific snitches
+
+Each node has the config file that holds Data Center/Region and the rack details. Nodes talk to each other using gossip protocol and gets the information about all the nodes in a cluster
