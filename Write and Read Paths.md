@@ -2,8 +2,8 @@
 
 Let's understand write and read paths in Cassandra
 
-[Write Path](write-path)
-[Read Path](read-path)
+[Write Path](##write-path)
+[Read Path](##read-path)
 
 ## Write Path
 
