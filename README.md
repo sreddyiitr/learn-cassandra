@@ -13,6 +13,9 @@ Cassandra Basics
 ### Peer to Peer archirecture ###
 Cassandra follows peer to peer architecture. The requests are received the the coordinator node and then routes the requests to the node that has the data based on the replication factor. Each node serves as Coordinator node and no node is lesser than the other node (unlike leader-follower or master-slave architecture)
 
+#### Gossip Protocol ####
+Cassandra uses a gossip protocol for peer to peer communication between nodes on our cluster. The gossip sessions run on a periodic schedule and each node communicates with several other nodes in the cluster to share its metadata. This allows all nodes on the cluster to be aware of the overall state of the cluster as a whole and the state of other specific nodes.
+
 ### Snitch ###
 
 Snitch config can be found in cassandra.yaml 
