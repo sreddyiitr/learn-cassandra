@@ -9,3 +9,10 @@ Cassandra Basics
    *MV should contain ALL primary key columns from the base table and any non-key columns that you want to include**
    *Cassandra is repsonsible for updating MV with the data from base tables*
    *Drawback: Expect a small performance hit on writes to keep MVs in sync*
+
+Cassandra follows peer to peer architecture
+
+### Snitch ###
+The snitch determines which datacenters and racks nodes belong to. They inform Cassandra about the network topology so that requests are routed efficiently and allows Cassandra to distribute replicas by grouping machines into datacenters and racks. 
+
+There are many different types of snitches available such as the simple snitch, property file snitch and cloud specific snitches
