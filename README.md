@@ -7,10 +7,10 @@ Cassandra Basics
 
 ### Materialized Views ###
 
-*Materialized Views help to query data based on non-primary key columns and eliminates the need for secondary indexes. Seconday Index is most expensive in cassandra because the data needs to be queried from multiple tables in a cluster
-   *MV should contain ALL primary key columns from the base table and any non-key columns that you want to includ
-   *Cassandra is repsonsible for updating MV with the data from base tables
-   *Drawback: Expect a small performance hit on writes to keep MVs in sync*
+* Materialized Views help to query data based on non-primary key columns and eliminates the need for secondary indexes. Seconday Index is most expensive in cassandra because the data needs to be queried from multiple tables in a cluster
+   * MV should contain ALL primary key columns from the base table and any non-key columns that you want to includ
+   * Cassandra is repsonsible for updating MV with the data from base tables
+   * Drawback: Expect a small performance hit on writes to keep MVs in sync*
 
 ### Peer to Peer archirecture ###
 Cassandra follows peer to peer architecture. The requests are received the the coordinator node and then routes the requests to the node that has the data based on the replication factor. Each node serves as Coordinator node and no node is lesser than the other node (unlike leader-follower or master-slave architecture)
