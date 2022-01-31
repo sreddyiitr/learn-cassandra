@@ -7,7 +7,6 @@ Let's understand write and read paths in Cassandra
 [Read Path](#read-path)
 
 <h3 id="write-path">Write Path</h3>
-//## Write Path {#write-path}  {#custom-id}
 
 Cassandra runs on JVM. It has access to the memory (MemTable) and the physical storage/disk  (Commit Log). When a write is requested by the client, Cassandra writes the data to both the `Commit Log` and `MemTable`. The difference is: `Commit Log` table doesn't have the sorted order of data based on the clustering index, but the MemTable does have the sorted order as it can be seen in the image below.
 
@@ -22,7 +21,7 @@ When MemTable and CommitLog grow as the data is written, MemTable data gets flus
 ![Write04](paths/Write04.png)
 
 
-## Read Path {#read-path}
+<h3 id="read-path">Read Path</h3>
 
 As you can see, the data is in multiple places as below. The data from MemTable is newer so the data will be returned from MemTable, if the same key exists but older data in other tables.
 
