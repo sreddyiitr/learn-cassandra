@@ -1,10 +1,12 @@
 # Cassandra Paths
 
-Let's understand write and read paths in Cassandra
+Let's understand write and read paths along with Compaction in Cassandra
 
 [Write Path](#write-path)
 
 [Read Path](#read-path)
+
+[Compaction](#compaction)
 
 <h3 id="write-path">Write Path</h3>
 
@@ -32,5 +34,17 @@ How does Cassadra get the data from multiple tables while reading?
 * Cassadra saves info on nodes based on the partition key. It checks `bloom filter` to know SS table that the data is present. `Key Cache` stores frequently accesses indexes. `Partition Summary` helps when `Partition Index` grows in size. It groups indexes together (3-4 partition keys in one group, a quicker way to get first few nodes instead of scanning all.   `Partitin Index` has the information on partition and node/SS Table where the data is present. Finally reading from `SS Table`.. This is not the most performant one.
 
 
-
 ![Read02](paths/Read02.png)
+
+<h3 id="compaction">Compaction</h3>
+
+* Compaction: Consolidates multiple SS tables into One SS Table to ensure the data effiency and good read speeds. Better to have the data in one ss table. SS Tables are immutable, i.e. we can not change a SS table, instead we can create new ones.
+
+**Partition Key Name (Timestamp)**
+
+Make a note.... SS table on the right has `USA 5 X ` with the latest timestamp. That means it was deleted by the user so this row wont be written to final SS table
+
+![Compaction](paths/Compaction.png)
+
+**The merge happens in Memory and gets flushed to another SS table on the disk**
+
